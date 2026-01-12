@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Unlock the Magic</title>
+  <style>
+    body { text-align:center; font-family:Arial, padding:50px; }
+    input { font-size:1.2em; padding:10px; width:250px; }
+    button { font-size:1.2em; padding:10px 20px; margin-left:10px; }
+    #message { margin-top:20px; font-size:1.1em; color:#333; }
+  </style>
+</head>
+<body>
+
+<h1>✨ Unlock Your Magic ✨</h1>
+<p>Enter the code from your card:</p>
+
+<input id="codeInput" placeholder="Enter code here">
+<button onclick="checkCode()">Unlock</button>
+
+<p id="message"></p>
+
+<script>
+const validCodes = [
+  "MAGIC-7F9K-2A8Q",
+  "MAGIC-2B4J-9XKL",
+  "MAGIC-3X9M-1PLQ"
+];
+
+function checkCode() {
+  const code = document.getElementById("codeInput").value.trim().toUpperCase();
+  const msg = document.getElementById("message");
+
+  if (!code) {
+    msg.textContent = "Please enter your code.";
+    return;
+  }
+
+  if (validCodes.includes(code)) {
+    msg.textContent = "Success! Redirecting to your magic tutorial… ✨";
+    setTimeout(() => {
+      window.location.href = "video.html";
+    }, 1000);
+  } else {
+    msg.textContent = "Invalid code! Check your card.";
+  }
+}
+</script>
+
+</body>
+</html>
